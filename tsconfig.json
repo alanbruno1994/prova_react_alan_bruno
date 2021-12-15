@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "@components/*":["./src/components/*"],
-      "@views/*":["./src/views/*"],
+      "@pages/*":["./src/pages/*"],
       "@src/*":["./src/*"]    
     },
     "allowJs": true,
