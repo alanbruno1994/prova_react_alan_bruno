@@ -6,8 +6,7 @@ const CardBody=styled.div`
     background-color: white;
     width: 352px;
     border-radius: 14px;
-    box-shadow: 0px 3px 25px #00000014;
-    height: 420px;
+    box-shadow: 0px 3px 25px #00000014;   
     border: 1px solid #DDDDDD;
 `
 
