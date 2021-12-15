@@ -1,5 +1,11 @@
+import Brand from "@components/Brand"
+import TwoViews from "@components/TwoViews"
+
 const RegisterUser=()=>{
-    return <>Register User Page</>
+    return  <TwoViews>
+    <div><Brand/></div>
+    <div></div>        
+    </TwoViews>
 }
 
 export default RegisterUser
