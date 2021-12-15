@@ -8,7 +8,7 @@ import { NavLink } from "react-router-dom"
 const RegisterUser=()=>{
     return  <TwoViews>
             <div><Brand/></div>
-            <div><RegionForm title="Reset Password" linkFooter={<NavLink to="/"> <BsArrowLeft size={24}/> Back</NavLink>}>
+            <div><RegionForm title="Registration" linkFooter={<NavLink to="/"> <BsArrowLeft size={24}/> Back</NavLink>}>
                         <input type="text" placeholder="Name"></input>
                         <div className="spacing"/>      
                         <input type="email" placeholder="Email"></input>
