@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import Card from "./UI/Card"
+import { BsArrowRight } from "react-icons/bs";
 
 const DIVFather=styled.div`
     width: 100%;
@@ -10,11 +11,16 @@ const DIVFather=styled.div`
     align-items: center;
     min-height: 100vh;
 
-    &>span
+    &>span, &>a
     {
         font: italic normal bold 35px/70px Helvetica Neue;
         color: #707070;
     }
+
+    &>a{
+        text-decoration: none;
+    }
+
 
 `
 
@@ -56,6 +62,17 @@ const Form=styled.form`
     }
 `
 
+const ButtonLogin=styled.button`
+    color: #B5C401;
+    background-color: white;
+    border:0;
+    font-size: 35px;
+    font-weight: bold;
+    font-family: Helvetica;
+    font-style: italic;
+    margin:20px 0px
+`
+
 const RegionLogin: React.FC=(props)=>{
 
     return <DIVFather>
@@ -66,9 +83,11 @@ const RegionLogin: React.FC=(props)=>{
                         <div className="spacing"/>
                         <input type="password" placeholder="Password"></input>
                         <div className="spacing"/>
-                        <NavLink to="/reset-password"><span>I me forget password</span></NavLink>
+                        <NavLink to="/reset-password"><span>I forget my password</span></NavLink>
+                        <ButtonLogin>Log in <BsArrowRight size={24}/></ButtonLogin>
                     </Form>
                 </Card>
+                <NavLink to="/register-user">Sign Up <BsArrowRight size={24}/></NavLink>
             </DIVFather>
 }
 
