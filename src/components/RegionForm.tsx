@@ -1,22 +1,15 @@
-import { NavLink } from "react-router-dom"
 import Card from "./UI/Card"
-import { BsArrowRight } from "react-icons/bs";
-import { ButtonLogin, DIVFather, Form } from "./RegionFormStyled";
+import { DIVFather, Form } from "./RegionFormStyled";
 
-const RegionLogin: React.FC=(props)=>{
+const RegionLogin: React.FC<{linkFooter?:JSX.Element,title:string}>=(props)=>{
     return <DIVFather>
-                <span>Authentication</span>
+                <span>{props.title}</span>
                 <Card>
                     <Form>
-                        <input type="text" placeholder="Email"></input>
-                        <div className="spacing"/>
-                        <input type="password" placeholder="Password"></input>
-                        <div className="spacing"/>
-                        <NavLink to="/reset-password"><span>I forget my password</span></NavLink>
-                        <ButtonLogin>Log in <BsArrowRight size={24}/></ButtonLogin>
+                        {props.children}                       
                     </Form>
                 </Card>
-                <NavLink to="/register-user">Sign Up <BsArrowRight size={24}/></NavLink>
+               {props.linkFooter}
             </DIVFather>
 }
 
