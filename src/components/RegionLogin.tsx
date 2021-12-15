@@ -56,9 +56,8 @@ const Form=styled.form`
         justify-content: end;
         margin-right: 30px;
         margin-top: 20px;
-        span{
-                    
-        }
+        font-style: italic;
+        font-weight: 100;
     }
 `
 
@@ -69,12 +68,14 @@ const ButtonLogin=styled.button`
     font-size: 35px;
     font-weight: bold;
     font-family: Helvetica;
-    font-style: italic;
-    margin:20px 0px
+    font-style: italic;   
+    cursor: pointer;
+    display: block;
+    margin: 40px auto;
+    
 `
 
 const RegionLogin: React.FC=(props)=>{
-
     return <DIVFather>
                 <span>Authentication</span>
                 <Card>
