@@ -11,7 +11,7 @@ const Login=()=>{
     return <>
     <TwoViews>
             <div><Brand/></div>
-            <div><RegionForm linkFooter={<NavLink to="/register">Sign Up <BsArrowRight size={24}/></NavLink>}>
+            <div><RegionForm title="Authentication" linkFooter={<NavLink to="/register">Sign Up <BsArrowRight size={24}/></NavLink>}>
                         <input type="text" placeholder="Email"></input>
                         <div className="spacing"/>
                         <input type="password" placeholder="Password"></input>
