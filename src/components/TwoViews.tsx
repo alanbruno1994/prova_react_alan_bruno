@@ -1,9 +1,9 @@
-import style from 'styled-components'
+import styled from 'styled-components'
 
-const Div=style.div`
+const Div=styled.div`
     display:flex;
-    
-    div{
+    min-height: 100vh;
+    & div{
         width:50%;        
     }
 `
