@@ -8,7 +8,7 @@ import Footer from "@components/footer"
 
 const RegisterUser=()=>{
     return <>
-            <TwoViews>
+            <TwoViews header={false}>
                     <div><Brand/></div>
                     <div><RegionForm title="Registration" linkFooter={<NavLink to="/"> <BsArrowLeft size={24}/> Back</NavLink>}>
                                 <input type="text" placeholder="Name"></input>

@@ -3,16 +3,24 @@ import Footer from "@components/footer"
 import RegionForm from "@components/RegionForm"
 import { ButtonLogin } from "@components/RegionFormStyled"
 import TwoViews from "@components/TwoViews"
+import React from "react"
 import { BsArrowRight } from "react-icons/bs"
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 
 
 const Login=()=>{
+    const navigate=useHistory()
+
+    const loginHandler=(event:React.FormEvent)=>
+    {
+        event.preventDefault()
+        navigate.push("/home")        
+    }
 
     return <>
-            <TwoViews>
+            <TwoViews header={false}>
                     <div><Brand/></div>
-                    <div><RegionForm title="Authentication" linkFooter={<NavLink to="/register">Sign Up <BsArrowRight size={24}/></NavLink>}>
+                    <div><RegionForm action={loginHandler} title="Authentication" linkFooter={<NavLink to="/register">Sign Up <BsArrowRight size={24}/></NavLink>}>
                                 <input type="text" placeholder="Email"></input>
                                 <div className="spacing"/>
                                 <input type="password" placeholder="Password"></input>

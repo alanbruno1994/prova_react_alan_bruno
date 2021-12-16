@@ -8,7 +8,7 @@ import Footer from "@components/footer"
 
 const ResetPassoword=()=>{    
     return  <>
-            <TwoViews>
+            <TwoViews header={false}>
             <div><Brand/></div>
             <div><RegionForm title="Reset Password" linkFooter={<NavLink to="/"> <BsArrowLeft size={24}/> Back</NavLink>}>                            
                         <input type="email" placeholder="Email"></input>
