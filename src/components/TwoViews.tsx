@@ -13,6 +13,40 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
     
     .leftDiv{
         width: 60%;
+        .header-top-recent-games{
+            display: flex;
+
+            .title-recent{
+                  font-size: 24px;
+                  text-transform: uppercase;
+                  color: #707070;
+                  font-weight: bold;
+                  font-style: italic;
+                  margin-right: 60px;
+            }
+            
+            .filter-div{
+             display:flex;
+             justify-content: center;
+             align-items: center;
+             
+
+                .filter{
+                        font-size: 17px;
+                        color: #868686;
+                        font-style: italic;
+                        font-weight: 100;
+                }
+             
+                button
+                {
+                    margin:0px 15px;
+                }
+
+            }
+
+            
+         }   
     }
 
     .rightDiv{
@@ -32,6 +66,8 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
         font-style: italic;
         text-align:right;
     }
+
+   
 }
 
 
