@@ -55,6 +55,8 @@ const HeaderStyled=styled.header`
             border:0px;
         }
     }
+
+   
 `
 
 const Space=styled.div`
