@@ -4,9 +4,11 @@ import RegionForm from "@components/RegionForm"
 import { NavLink } from "react-router-dom"
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs"
 import { ButtonLogin } from "@components/RegionFormStyled"
+import Footer from "@components/footer"
 
 const ResetPassoword=()=>{    
-    return  <TwoViews>
+    return  <>
+            <TwoViews>
             <div><Brand/></div>
             <div><RegionForm title="Reset Password" linkFooter={<NavLink to="/"> <BsArrowLeft size={24}/> Back</NavLink>}>                            
                         <input type="email" placeholder="Email"></input>
@@ -15,5 +17,7 @@ const ResetPassoword=()=>{
                 </RegionForm>    
             </div>        
             </TwoViews>
+            <Footer content="Copyright 2021 Luby Software"/>
+            </>
 }
 export default ResetPassoword

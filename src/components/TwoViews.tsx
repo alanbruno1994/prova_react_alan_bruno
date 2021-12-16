@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Div=styled.div`
     display:flex;
-    min-height: 100vh;
+    height: calc(100vh - 70px);
     &>div{
         width:50%;        
     }
