@@ -2,43 +2,41 @@ import styled from "styled-components"
 
 const HeaderStyled=styled.header`
     height: 70px;
+    width: 85%;
+    margin: 0 auto;
  
 
     &>div{        
         display: flex;
-        width: 100vw;
+        width: 100%;
         justify-content: space-between;
     }
 
-    &>.spacing{
-        height: 2px;
-        width: 100%;       
-        background-color:#EBEBEB;
-    }
+
     .TGLHome{
         font-size: 44px;
         color: #707070;
         font-weight: bolder;
         font-style: italic;
         display: flex;
-        flex-direction: column;
-        margin-left: 130px;
+        flex-direction: column;       
         width: 107px;
         text-align:center;
+        margin-top: 10px;
 
         div{
             width: 107px;
             height: 7px;
             position: absolute;
-            top:58px;
+            top:68px;
             background-color: #B5C401;
         }
     }
 
     .TwoElements{        
         display: flex;
-        margin-right: 130px;
-
+        margin-top: 10px;
+     
         span,button{
             background-color:white;
             color: #707070;
@@ -59,14 +57,24 @@ const HeaderStyled=styled.header`
     }
 `
 
+const Space=styled.div`
+        height: 2px;
+        width: 100%;       
+        background-color:#EBEBEB;       
+`
+
 const Header:React.FC=(props)=>
 {
-    return <HeaderStyled>
-        <div>
-            {props.children}
-        </div>
-        <div className="spacing"></div>
-    </HeaderStyled>
+    return <> 
+        <HeaderStyled>
+            <div>
+                {props.children}
+            </div>
+            
+        </HeaderStyled>
+        <Space/>
+       </>
+
 }
 
 export default Header
