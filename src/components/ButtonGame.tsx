@@ -6,6 +6,9 @@ const Button=styled.button<{colorText:string,backGround:string}>`
     width: 113px;
     height: 34px;
     border-radius: 100px;
+    font-style: italic;
+    font-size: 14px;
+    border-color: ${props=>props.colorText};
 
 `
 
