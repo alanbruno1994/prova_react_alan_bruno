@@ -9,6 +9,10 @@ const GlobalStyle=createGlobalStyle `
         outline: none;
         font-family: 'Open Sans', sans-serif;
     }
+
+    body,html{
+        background: #F7F7F7;
+    }
 `
 
 export default GlobalStyle
