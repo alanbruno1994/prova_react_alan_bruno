@@ -38,7 +38,7 @@ const HeaderStyled=styled.header`
         margin-top: 10px;
      
         span,button{
-            background-color:white;
+            background: #F7F7F7;
             color: #707070;
             font-size: 20px;
             font-weight:500;

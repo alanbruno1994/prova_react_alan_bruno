@@ -12,7 +12,7 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
     }
     
     .leftDiv{
-        width: 60%;
+        width: 80%;
         .header-top-recent-games{
             display: flex;
 
@@ -46,11 +46,15 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
             }
 
             
-         }   
+         }  
+         
+         
+
+         
     }
 
     .rightDiv{
-        width: 40%;
+        width: 20%;
 
 
     }
