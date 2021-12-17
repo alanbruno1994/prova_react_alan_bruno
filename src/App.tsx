@@ -3,14 +3,19 @@ import Login from '@pages/Login';
 import NewBet from '@pages/NewBet';
 import RegisterUser from '@pages/RegisterUser';
 import ResetPassoword from '@pages/ResetPassword';
-import { Route, Switch } from 'react-router-dom';
-
+import { Redirect, Route, Switch } from 'react-router-dom';
+import {useSelector} from 'react-redux'
 
 function App() {
+  const state = useSelector((state:any)=>state.login)
+  const logged = useSelector((state:any)=>state.login.logged)
+  console.log(state)
   return (
+    
     <Switch>
       <Route path="/" exact >
-        <Login/>
+        {!logged && <Login/>}
+        {logged && <Redirect to="/home"/>}
       </Route>
       <Route path="/home">
         <Home/>
@@ -24,7 +29,6 @@ function App() {
       <Route path="/register">
         <RegisterUser/>
       </Route>
-
     </Switch>
   );
 }
