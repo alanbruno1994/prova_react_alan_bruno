@@ -29,7 +29,7 @@ const Login=()=>{
         const name=data.user.name; 
         const logged=true;
         dispatch(loginActions.setLogin({token,expireAtToken,user_id,name,logged,email:data.user.email}))
-        navigate.replace("/home")
+        navigate.push("/home")
     }
 
     
