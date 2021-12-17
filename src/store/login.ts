@@ -23,13 +23,22 @@ const initialLogin:LoginRedux = {
     name: 'login',
     initialState: localStorage.getItem('loginData') ? JSON.parse(''+localStorage.getItem('loginData')) : initialLogin,
     reducers: {//Aqui nao que action precisao tenha o type
-      setLogin(state,action) {       
-        state=action.payload
-        localStorage.setItem("loginData",JSON.stringify(action.payload))
+      setLogin(state:LoginRedux,action) {  
+        state.token=action.payload.token     
+        state.email=action.payload.email
+        state.expireAtToken=action.payload.expireAtToken
+        state.name=action.payload.name
+        state.user_id=action.payload.user_id
+        state.logged=action.payload.logged
       },
       logout(state)
       {      
-        state=initialLogin
+        state.token=initialLogin.token     
+        state.email=initialLogin.email
+        state.expireAtToken=initialLogin.expireAtToken
+        state.name=initialLogin.name
+        state.user_id=initialLogin.user_id
+        state.logged=initialLogin.logged    
         localStorage.removeItem('loginData')
       }
     },
