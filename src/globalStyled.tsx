@@ -7,7 +7,7 @@ const GlobalStyle=createGlobalStyle `
         padding: 0;
         box-sizing:border-box;
         outline: none;
-        font-family: 'Open Sans', sans-serif;
+        font-family: 'Roboto','Open Sans', sans-serif;
     }
 
     body,html{
