@@ -4,20 +4,18 @@ import Header from "@components/Header";
 import MyGamesRecents from "@components/MyGamesRecents";
 import TwoViews from "@components/TwoViews";
 import { BsArrowRight } from "react-icons/bs";
-import { NavLink, useHistory } from "react-router-dom";
-
+import { NavLink,  } from "react-router-dom";
+import useLogout from "@src/hooks/logout";
 
 const Home=()=>
 {
-    const navigate=useHistory()
-    const exitHandler=()=>{
-        navigate.push("/")
-    }   
-
+   
+    const logoutHandler = useLogout()
+  
     return <>
         <Header>
             <div className="TGLHome">TGL<div/></div>
-            <div className="TwoElements"><span><span>Account</span></span><button onClick={exitHandler}>Log out &nbsp; <BsArrowRight size={24}/></button></div>
+            <div className="TwoElements"><span><span>Account</span></span><button onClick={logoutHandler}>Log out &nbsp; <BsArrowRight size={24}/></button></div>
         </Header>
         <TwoViews header={true} home={true}>
             <div className="leftDiv">
