@@ -10,7 +10,10 @@ const DIVFather=styled.div`
 
     &>span, &>a
     {
-        font: italic normal bold 35px/70px Helvetica Neue;
+       
+        font-size: 35px;
+        font-style: italic;
+        font-weight: bold;
         color: #707070;
     }
 
@@ -54,7 +57,7 @@ const Form=styled.form`
         margin-right: 30px;
         margin-top: 20px;
         font-style: italic;
-        font-weight: 100;
+        font-weight: 400;
     }
 `
 

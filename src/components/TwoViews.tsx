@@ -48,6 +48,54 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
             
          }  
          
+         .region-game{
+                display: flex;
+                flex-direction: column;
+
+                .titles
+                {
+                    margin-top: 60px;
+                    margin-bottom: 33px;
+                }
+
+                .title-bold,.title
+                {
+                    text-transform: uppercase;
+                    color:#707070;
+                    font-size: 24px;
+                    font-style: italic;
+                    font-weight: 100;
+                }
+
+                .title-bold{
+                    font-weight: bold;
+                }
+
+                .subtitle
+                {
+                    color:#707070;
+                    font-size: 17px;
+                    font-style: italic;
+                }
+
+                .game-change{
+                    display: flex;
+                    margin-top: 30px;
+                    margin-bottom: 20px;
+                    
+                    button{
+                        margin-right: 25px;
+                    }
+                }
+
+                .number-chooses{
+                    display: flex;
+                    margin-top: 20px;
+                }
+
+         }
+
+
          
 
          
