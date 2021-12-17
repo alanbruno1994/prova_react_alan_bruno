@@ -12,7 +12,8 @@
       "@pages/*":["./src/pages/*"],
       "@src/*":["./src/*"],
       "@store/*":["./src/store/*"],
-      "@constants/*":["./src/constants/*"]      
+      "@constants/*":["./src/constants/*"],
+      "@hooks/*":["./src/hooks/*"]  
     },
     "allowJs": true,
     "skipLibCheck": true,
