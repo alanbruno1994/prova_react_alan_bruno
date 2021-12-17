@@ -10,24 +10,28 @@ function App() {
   const state = useSelector((state:any)=>state.login)
   const logged = useSelector((state:any)=>state.login.logged)
   console.log(state)
-  return (
-    
+  return (    
     <Switch>
       <Route path="/" exact >
         {!logged && <Login/>}
         {logged && <Redirect to="/home"/>}
       </Route>
       <Route path="/home">
-        <Home/>
+        {logged &&  <Home/>}
+        {!logged && <Redirect to="/"/>}      
       </Route>
       <Route path="/new-bet">
-        <NewBet/>
+        {logged && <NewBet/>}
+        {!logged && <Redirect to="/"/>}
       </Route>
       <Route path="/reset-password">
         <ResetPassoword/>
       </Route>
       <Route path="/register">
         <RegisterUser/>
+      </Route>
+      <Route path="*">
+         <Redirect to="/"/>
       </Route>
     </Switch>
   );
