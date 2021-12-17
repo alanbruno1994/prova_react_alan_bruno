@@ -30,6 +30,7 @@ const initialLogin:LoginRedux = {
         state.name=action.payload.name
         state.user_id=action.payload.user_id
         state.logged=action.payload.logged
+        localStorage.setItem('loginData',JSON.stringify(action.payload))
       },
       logout(state)
       {      
