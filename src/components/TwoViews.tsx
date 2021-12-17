@@ -91,6 +91,7 @@ const Div=styled.div<{isHeader:boolean,home?:boolean}>`
                 .number-chooses{
                     display: flex;
                     margin-top: 20px;
+                    flex-wrap: wrap;
                 }
 
          }
