@@ -6,11 +6,37 @@ import TwoViews from "@components/TwoViews";
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink,  } from "react-router-dom";
 import useLogout from "@src/hooks/logout";
+import Game from "@src/types/game.type";
+import axios from "axios";
+import { headerBase, urlBase } from "@src/constants/api_constants";
+import { useEffect, useState } from "react";
+
 
 const Home=()=>
 {
    
     const logoutHandler = useLogout()
+    const [games,setGames]= useState<Game[]>([])
+    const [chooseGame,setChooseGame]=useState(0)
+  
+
+
+    const serveData= async ()=>
+    {
+        const response = await axios.get(urlBase+'cart_games',{headers:headerBase}) 
+        const data= await response.data
+        setGames(data.types) 
+        setChooseGame(data.types[0].id)     
+    }
+
+    useEffect(()=>{
+        serveData()
+       },[])
+
+    const chooseGameHandler=(choose:number,index:number)=>
+    {
+        setChooseGame(choose)       
+    }
   
     return <>
         <Header>
@@ -23,9 +49,13 @@ const Home=()=>
                     <span className="title-recent">Recent Games</span>
                     <div className="filter-div">
                         <span className="filter">Filters</span>
-                        <ButtonGame text="Mega Sena" backGround="green" colorText="white"/>
-                        <ButtonGame text="Lotofacil" backGround="pink" colorText="white"/>
-                        <ButtonGame text="Lotomania" backGround="cyan" colorText="white"/>
+                        {games.map((game:Game,index)=>{                                  
+                                    if(game.id===chooseGame)
+                                    {
+                                        return <ButtonGame index={index} id={game.id} chooseHandler={chooseGameHandler} key={game.id} text={game.type} backGround={game.color} colorText="white"/>
+                                    }                                  
+                                   return  <ButtonGame  index={index} id={game.id} chooseHandler={chooseGameHandler} key={game.id} text={game.type} backGround="white" colorText={game.color}/>
+                                })}   
                     </div>
                 </div>  
                 <MyGamesRecents numbers="01, 02,04,05,06,07,09,15,17,20,21,22,23,24,25"
