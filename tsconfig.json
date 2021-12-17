@@ -11,7 +11,8 @@
       "@components/*":["./src/components/*"],
       "@pages/*":["./src/pages/*"],
       "@src/*":["./src/*"],
-      "@store/*":["./src/store/*"]    
+      "@store/*":["./src/store/*"],
+      "@constants/*":["./src/constants/*"]      
     },
     "allowJs": true,
     "skipLibCheck": true,
