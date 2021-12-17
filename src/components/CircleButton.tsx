@@ -12,6 +12,7 @@ const Button=styled.button`
     color: white;
     font-size: 20px;
     font-weight: bold;
+    margin: 8px 5px;
 `
 
 const CicleButton:React.FC<{number:string}>=(props)=>{
