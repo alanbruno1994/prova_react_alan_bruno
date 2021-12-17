@@ -53,6 +53,7 @@ const HeaderStyled=styled.header`
 
         button{
             border:0px;
+            cursor: pointer;
         }
     }
 
