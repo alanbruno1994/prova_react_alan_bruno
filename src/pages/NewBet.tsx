@@ -3,6 +3,7 @@ import Cart from "@components/Cart";
 import CicleButton from "@components/CircleButton";
 import Footer from "@components/footer";
 import Header from "@components/Header";
+import RectangleButton from "@components/RectangleButton";
 import TwoViews from "@components/TwoViews";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import useLogout from "@src/hooks/logout";
@@ -10,7 +11,7 @@ import Game from "@src/types/game.type";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-
+import { BsCart3 } from "react-icons/bs";
 
 
 const NewBet=()=>{
@@ -72,7 +73,11 @@ const NewBet=()=>{
                             <div className="number-chooses">
                             {generateBalls()}                         
                             </div>
-                            <div></div>
+                            <div>
+                                <RectangleButton>Complete game</RectangleButton>
+                                <RectangleButton>Clear game</RectangleButton>
+                                <RectangleButton><BsCart3 size={16} color="red"/><span className="separate">Add to cart</span></RectangleButton>
+                            </div>
                     </div>
                   
                 </div>
