@@ -4,20 +4,18 @@ import CicleButton from "@components/CircleButton";
 import Footer from "@components/footer";
 import Header from "@components/Header";
 import TwoViews from "@components/TwoViews";
+import useLogout from "@src/hooks/logout";
 import { BsArrowRight } from "react-icons/bs";
-import { useHistory } from "react-router-dom";
+
 
 
 const NewBet=()=>{
-    const navigate=useHistory()
-    const exitHandler=()=>{
-        navigate.push("/")
-    }   
+    const logoutHandler = useLogout()
 
     return <>
             <Header>
                 <div className="TGLHome">TGL<div/></div>
-                <div className="TwoElements"><span><span>Account</span></span><button onClick={exitHandler}>Log out &nbsp; <BsArrowRight size={24}/></button></div>
+                <div className="TwoElements"><span><span>Account</span></span><button onClick={logoutHandler}>Log out &nbsp; <BsArrowRight size={24}/></button></div>
             </Header>
             <TwoViews header={true}>
                 <div className="leftDiv">
