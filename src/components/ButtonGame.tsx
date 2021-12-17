@@ -12,10 +12,11 @@ const Button=styled.button<{colorText:string,backGround:string}>`
 
 `
 
-const ButtonGame:React.FC<{text:string,backGround:string,colorText:string}>=(props)=>
+const ButtonGame:React.FC<{text:string,backGround:string,colorText:string,id:number,index:number,chooseHandler:(value:number,index:number)=>void}>=(props)=>
 {
+    
 
-    return <Button backGround={props.backGround} colorText={props.colorText}>{props.text}</Button>
+    return <Button onClick={_=>props.chooseHandler(props.id,props.index)} backGround={props.backGround} colorText={props.colorText}>{props.text}</Button>
 
 }
 
