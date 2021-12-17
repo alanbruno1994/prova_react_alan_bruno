@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 type LoginRedux={
   token:string
-  expireAtToken:null| Date
+  expireAtToken:string
   name:string
   user_id:number
   logged:boolean
@@ -10,9 +10,9 @@ type LoginRedux={
 }
 
 
-const initialName:LoginRedux = {
+const initialLogin:LoginRedux = {
     token: '',
-    expireAtToken:null,
+    expireAtToken:'',
     name: '',
     user_id:0,
     logged:false,
@@ -21,14 +21,16 @@ const initialName:LoginRedux = {
   
   const loginSlice = createSlice({
     name: 'login',
-    initialState: initialName,
+    initialState: localStorage.getItem('loginData') ? JSON.parse(''+localStorage.getItem('loginData')) : initialLogin,
     reducers: {//Aqui nao que action precisao tenha o type
-      setLogin(state,action) {      
-       state=action.payload
+      setLogin(state,action) {       
+        state=action.payload
+        localStorage.setItem("loginData",JSON.stringify(action.payload))
       },
-      setLogged(state,action)
-      {
-        state.logged=action.payload
+      logout(state)
+      {      
+        state=initialLogin
+        localStorage.removeItem('loginData')
       }
     },
   });
