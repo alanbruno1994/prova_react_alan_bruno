@@ -1,4 +1,4 @@
-import { HeaderStyled, Space } from "./SyledComponents/HeaderStyled";
+import { HeaderStyled, Space } from "../SyledComponents/HeaderStyled";
 
 const Header: React.FC = (props) => {
   return (

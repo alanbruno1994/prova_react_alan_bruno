@@ -2,7 +2,7 @@ import ButtonGame from "@components/Button/ButtonGame";
 import Cart from "@components/Cart";
 import CicleButton from "@components/Button/CircleButton";
 import Footer from "@components/footer";
-import Header from "@components/Header";
+import Header from "@components/Header/Header";
 import RectangleButton from "@components/Button/RectangleButton";
 import TwoViews from "@components/TwoViews";
 import { headerBase, urlBase } from "@src/constants/api_constants";

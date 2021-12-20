@@ -1,6 +1,6 @@
 import ButtonGame from "@components/Button/ButtonGame";
 import Footer from "@components/footer";
-import Header from "@components/Header";
+import Header from "@components/Header/Header";
 import MyGamesRecents from "@components/MyGamesRecents";
 import TwoViews from "@components/TwoViews";
 import { BsArrowRight } from "react-icons/bs";
