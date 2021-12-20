@@ -1,8 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import loginReducer from '@store/login';
+import { configureStore } from "@reduxjs/toolkit";
+import loginReducer from "@store/login";
+import cartReducer from "@store/cart";
 
 const store = configureStore({
-  reducer: { login: loginReducer},
+  reducer: { login: loginReducer, cart: cartReducer },
 });
 
 export default store;
