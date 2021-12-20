@@ -95,7 +95,7 @@ const Cart: React.FC<{ minCart: number }> = (props) => {
           `You did not reach the minimum value of R$ ${props.minCart} in bet`
         );
       }
-      const response = await axios.post(
+      await axios.post(
         urlBase + "bet/new-bet",
         {
           games: games.items.map((value: CartType) => ({
