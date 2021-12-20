@@ -28,8 +28,6 @@ const Home = () => {
       });
       const data = await response.data;
       setGames(data.types);
-      setChooseGame({ id: data.types[0].id, index: 0 });
-
       getBets();
     } catch (failure: any) {
       mensagesFailure(failure, openFailure);
@@ -39,6 +37,11 @@ const Home = () => {
   useEffect(() => {
     serveData();
   }, []);
+
+  const handlerChooseGame = (value: { id: number; index: number }) => {
+    setChooseGame(value);
+    getBets("?type%5B%5D=" + games[value.index].type);
+  };
 
   return (
     <>
@@ -55,12 +58,13 @@ const Home = () => {
             <FilterRegion
               games={games}
               chooseGame={chooseGame}
-              setChooseGame={setChooseGame}
+              setChooseGame={handlerChooseGame}
             />
           </div>
           {bets.length > 0 &&
-            bets?.map((value) => (
+            bets?.map((value, index) => (
               <MyGamesRecents
+                key={index}
                 numbers={value.choosen_numbers}
                 priceDate={formatPriceCreateAt(value)}
                 typeGame={value.type.type}
