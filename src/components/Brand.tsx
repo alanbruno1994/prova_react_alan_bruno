@@ -8,6 +8,12 @@ const DIVBrand = styled.div`
     min-height: calc(100vh - 70px);
     width: 100%;
   }
+
+  @media (max-width: 1330px) {
+    &.brand {
+      min-height: auto !important;
+    }
+  }
 `;
 
 const DIVBrandIntern = styled.div`
@@ -22,6 +28,12 @@ const DIVBrandIntern = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
+  }
+
+  @media (max-width: 460px) {
+    &.organization {
+      font-size: 45px;
+    }
   }
 `;
 

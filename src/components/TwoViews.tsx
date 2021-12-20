@@ -91,8 +91,13 @@ const Div = styled.div<{ isHeader: boolean; home?: boolean }>`
 
   @media (max-width: 1330px) {
     .leftDiv,
-    .rightDiv {
+    .rightDiv,
+    & > div {
       width: 100%;
+    }
+
+    & > div {
+      height: auto;
     }
 
     .DivContentNewBet {

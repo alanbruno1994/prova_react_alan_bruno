@@ -19,6 +19,18 @@ const DIVFather = styled.div`
   & > a {
     text-decoration: none;
   }
+
+  @media (max-width: 1330px) {
+    min-height: auto;
+  }
+
+  @media (max-width: 460px) {
+    & > span,
+    & > a {
+      font-size: 25px;
+      margin: 20px 0px;
+    }
+  }
 `;
 
 const Form = styled.form`
@@ -68,6 +80,10 @@ const ButtonLogin = styled.button`
   cursor: pointer;
   display: block;
   margin: 40px auto;
+
+  @media (max-width: 460px) {
+    font-size: 25px;
+  }
 `;
 
 export { ButtonLogin, DIVFather, Form };
