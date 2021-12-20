@@ -1,7 +1,7 @@
 import { AiOutlineClose } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import BlackBackgound from "./SyledComponents/BlackBackground";
+import BlackBackgound from "@components/SyledComponents/BlackBackground";
 
 const Content = styled.div`
   .menu {

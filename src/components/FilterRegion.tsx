@@ -1,6 +1,6 @@
 import Game from "@src/types/game.type";
 import ButtonsChose from "./ButtonsChose";
-import FilterRegionStyled from "./SyledComponents/FilterRegionStyled";
+import FilterRegionStyled from "@components/SyledComponents/FilterRegionStyled";
 
 type FilterRegionType = {
   chooseGame: { id: number; index: number };

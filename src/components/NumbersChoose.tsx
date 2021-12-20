@@ -1,6 +1,6 @@
 import Game from "@src/types/game.type";
 import CicleButton from "./Button/CircleButton";
-import NumberChooseStyled from "./SyledComponents/NumbersChooseStyled";
+import NumberChooseStyled from "@components/SyledComponents/NumbersChooseStyled";
 
 type NumberChooseType = {
   ballChoose: number[];
