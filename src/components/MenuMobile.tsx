@@ -2,6 +2,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import BlackBackgound from "@components/SyledComponents/BlackBackground";
+import useLogout from "@src/hooks/logout";
 
 const Content = styled.div`
   .menu {
@@ -74,7 +75,9 @@ const Content = styled.div`
 
 const MenuMobile: React.FC<{
   mobileHandler: (event: React.MouseEvent) => void;
+  home: boolean;
 }> = (props) => {
+  const logoutHandler = useLogout();
   return (
     <Content>
       <BlackBackgound intensity={0.6} />
@@ -92,13 +95,13 @@ const MenuMobile: React.FC<{
           </div>
         </div>
         <div className="body">
-          <NavLink to="" onClick={(event) => event.preventDefault()}>
-            Home
+          <NavLink to={props.home ? "/home" : "/new-bet"}>
+            {props.home ? "Home" : "New Bet"}
           </NavLink>
           <NavLink to="" onClick={(event) => event.preventDefault()}>
             Account
           </NavLink>
-          <NavLink to="" onClick={(event) => event.preventDefault()}>
+          <NavLink to="/" onClick={logoutHandler}>
             Logout
           </NavLink>
         </div>
