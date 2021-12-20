@@ -1,69 +1,65 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
-const HeaderStyled=styled.header`
-    height: 70px;
-    width: 85%;
-    margin: 0 auto;
- 
+const HeaderStyled = styled.header`
+  height: 70px;
+  width: 85%;
+  margin: 0 auto;
 
-    &>div{        
-        display: flex;
-        width: 100%;
-        justify-content: space-between;
+  .tgl_links {
+    display: flex;
+  }
+
+  .home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+
+    a {
+      color: #707070;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: italic;
+      text-decoration: none;
+      margin-left: 60px;
+    }
+  }
+
+  .TwoElements {
+    display: flex;
+    margin-top: 10px;
+
+    span,
+    a {
+      background: #f7f7f7;
+      color: #707070;
+      font-size: 20px;
+      font-weight: 500;
+      font-style: italic;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
     }
 
-
-    .TGLHome{
-        font-size: 44px;
-        color: #707070;
-        font-weight: bolder;
-        font-style: italic;
-        display: flex;
-        flex-direction: column;       
-        width: 107px;
-        text-align:center;
-        margin-top: 10px;
-
-        div{
-            width: 107px;
-            height: 7px;
-            position: absolute;
-            top:68px;
-            background-color: #B5C401;
-        }
+    & > span {
+      margin-right: 40px;
     }
 
-    .TwoElements{        
-        display: flex;
-        margin-top: 10px;
-     
-        span,button{
-            background: #F7F7F7;
-            color: #707070;
-            font-size: 20px;
-            font-weight:500;
-            font-style: italic;
-            display: flex;
-            align-items:center;
-        }
-
-        &>span{
-            margin-right: 40px;
-        }
-
-        button{
-            border:0px;
-            cursor: pointer;
-        }
+    a {
+      border: 0px;
+      cursor: pointer;
     }
+  }
 
-   
-`
+  a:hover {
+    color: #505050;
+  }
+`;
 
-const Space=styled.div`
-        height: 2px;
-        width: 100%;       
-        background-color:#EBEBEB;       
-`
+const Space = styled.div`
+  height: 2px;
+  width: 100%;
+  background-color: #ebebeb;
+`;
 
-export {HeaderStyled,Space}
+export { HeaderStyled, Space };
