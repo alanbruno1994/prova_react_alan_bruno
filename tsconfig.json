@@ -12,7 +12,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@types/*": ["./src/types/*"],
       "@common/*": ["./src/common/*"],
-      "@errors/*": ["./src/errors/*"]
+      "@errors/*": ["./src/errors/*"],
+      "@portals/*": ["./src/portals/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

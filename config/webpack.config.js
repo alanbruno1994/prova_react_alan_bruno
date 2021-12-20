@@ -317,6 +317,7 @@ module.exports = function (webpackEnv) {
         "@types": path.resolve(__dirname, "../src/types"),
         "@common": path.resolve(__dirname, "../src/common"),
         "@errors": path.resolve(__dirname, "../src/errors"),
+        "@portals": path.resolve(__dirname, "../src/portals"),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         "react-native": "react-native-web",
