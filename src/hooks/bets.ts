@@ -29,13 +29,10 @@ export default function useBets(openFailure: any) {
       style: "currency",
       currency: "BRL",
     });
-    let date = bet.created_at
-      .match(/\d+/g)
-      ?.reduce((previos, current, index) => {
-        if (index <= 1) return previos + "/" + current;
-        else if (index === 2) return previos + current;
-        else return previos;
-      });
+    let dates = bet.created_at.match(/\d+/g);
+    let date = "";
+    if (dates) date = dates[2] + "/" + dates[1] + "/" + dates[0];
+
     return `${date} - (R$ ${price})`;
   }
 
