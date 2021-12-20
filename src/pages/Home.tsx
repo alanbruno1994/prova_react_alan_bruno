@@ -10,15 +10,16 @@ import { useEffect, useState } from "react";
 import Header from "@components/Header/Header";
 import FilterRegion from "@components/FilterRegion";
 import mensagesFailure from "@src/common/messages_failure";
-
 import ErrorPortal from "@src/portals/ErrorPortal";
 import useFailure from "@src/hooks/failure";
 import Error from "@components/UI/Error";
+import useBets from "@src/hooks/bets";
 
 const Home = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [chooseGame, setChooseGame] = useState({ id: 0, index: 0 });
   const { failure, openFailure, closeFailure } = useFailure();
+  const { bets, getBets, formatPriceCreateAt } = useBets();
 
   const serveData = async () => {
     try {
@@ -28,6 +29,8 @@ const Home = () => {
       const data = await response.data;
       setGames(data.types);
       setChooseGame({ id: data.types[0].id, index: 0 });
+
+      getBets();
     } catch (failure: any) {
       mensagesFailure(failure, openFailure);
     }
@@ -55,24 +58,17 @@ const Home = () => {
               setChooseGame={setChooseGame}
             />
           </div>
-          <MyGamesRecents
-            numbers="01, 02,04,05,06,07,09,15,17,20,21,22,23,24,25"
-            priceDate="30/11/2020 - (R$ 2,50)"
-            typeGame="Lotofácil"
-            typeColor="#7F3992"
-          />
-          <MyGamesRecents
-            numbers="01, 02,04,05,06,07,09,15,17,20,21,22,23,24,25"
-            priceDate="30/11/2020 - (R$ 2,50)"
-            typeGame="Lotofácil"
-            typeColor="#7F3992"
-          />
-          <MyGamesRecents
-            numbers="01, 02,04,05,06,07,09,15,17,20,21,22,23,24,25"
-            priceDate="30/11/2020 - (R$ 2,50)"
-            typeGame="Lotofácil"
-            typeColor="#7F3992"
-          />
+          {bets.length > 0 &&
+            bets?.map((value) => (
+              <MyGamesRecents
+                numbers={value.choosen_numbers}
+                priceDate={formatPriceCreateAt(value)}
+                typeGame={value.type.type}
+                typeColor={
+                  games.filter((game) => game.id === value.game_id)[0].color
+                }
+              />
+            ))}
         </div>
         <div className="rightDiv">
           <div className="DivContentNewBet">
