@@ -1,87 +1,59 @@
-import ButtonGame from "@components/Button/ButtonGame";
 import Footer from "@components/footer";
-import Header from "@components/Header/Header";
 import MyGamesRecents from "@components/MyGamesRecents";
 import TwoViews from "@components/TwoViews";
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
-import useLogout from "@src/hooks/logout";
 import Game from "@src/types/game.type";
 import axios from "axios";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import { useEffect, useState } from "react";
+import Header from "@components/Header/Header";
+import FilterRegion from "@components/FilterRegion";
+import mensagesFailure from "@src/common/messages_failure";
+
+import ErrorPortal from "@src/portals/ErrorPortal";
+import useFailure from "@src/hooks/failure";
+import Error from "@components/UI/Error";
 
 const Home = () => {
-  const logoutHandler = useLogout();
   const [games, setGames] = useState<Game[]>([]);
-  const [chooseGame, setChooseGame] = useState(0);
+  const [chooseGame, setChooseGame] = useState({ id: 0, index: 0 });
+  const { failure, openFailure, closeFailure } = useFailure();
 
   const serveData = async () => {
-    const response = await axios.get(urlBase + "cart_games", {
-      headers: headerBase,
-    });
-    const data = await response.data;
-    setGames(data.types);
-    setChooseGame(data.types[0].id);
+    try {
+      const response = await axios.get(urlBase + "cart_games", {
+        headers: headerBase,
+      });
+      const data = await response.data;
+      setGames(data.types);
+      setChooseGame({ id: data.types[0].id, index: 0 });
+    } catch (failure: any) {
+      mensagesFailure(failure, openFailure);
+    }
   };
 
   useEffect(() => {
     serveData();
   }, []);
 
-  const chooseGameHandler = (choose: number, index: number) => {
-    setChooseGame(choose);
-  };
-
   return (
     <>
-      <Header>
-        <div className="TGLHome">
-          TGL
-          <div />
-        </div>
-        <div className="TwoElements">
-          <span>
-            <span>Account</span>
-          </span>
-          <button onClick={logoutHandler}>
-            Log out &nbsp; <BsArrowRight size={24} />
-          </button>
-        </div>
-      </Header>
+      <ErrorPortal>
+        {failure.enable && (
+          <Error menssage={failure.message} close={closeFailure} />
+        )}
+      </ErrorPortal>
+      <Header />
       <TwoViews header={true} home={true}>
         <div className="leftDiv">
           <div className="header-top-recent-games">
             <span className="title-recent">Recent Games</span>
-            <div className="filter-div">
-              <span className="filter">Filters</span>
-              {games.map((game: Game, index) => {
-                if (game.id === chooseGame) {
-                  return (
-                    <ButtonGame
-                      index={index}
-                      id={game.id}
-                      chooseHandler={chooseGameHandler}
-                      key={game.id}
-                      text={game.type}
-                      backGround={game.color}
-                      colorText="white"
-                    />
-                  );
-                }
-                return (
-                  <ButtonGame
-                    index={index}
-                    id={game.id}
-                    chooseHandler={chooseGameHandler}
-                    key={game.id}
-                    text={game.type}
-                    backGround="white"
-                    colorText={game.color}
-                  />
-                );
-              })}
-            </div>
+            <FilterRegion
+              games={games}
+              chooseGame={chooseGame}
+              setChooseGame={setChooseGame}
+            />
           </div>
           <MyGamesRecents
             numbers="01, 02,04,05,06,07,09,15,17,20,21,22,23,24,25"

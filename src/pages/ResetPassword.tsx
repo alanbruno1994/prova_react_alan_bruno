@@ -3,12 +3,35 @@ import TwoViews from "@components/TwoViews";
 import RegionForm from "@components/RegionForm";
 import { NavLink } from "react-router-dom";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
-import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
 import Footer from "@components/footer";
+import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
+import EmptyValidation from "@src/common/empty_validation";
+import mensagesFailure from "@src/common/messages_failure";
+import useFailure from "@src/hooks/failure";
+import { useState } from "react";
+import Error from "@components/UI/Error";
+import ErrorPortal from "@src/portals/ErrorPortal";
 
 const ResetPassoword = () => {
+  const { failure, openFailure, closeFailure } = useFailure();
+  const [email, setEmail] = useState("");
+
+  async function resetHandler(event: React.FormEvent) {
+    event.preventDefault();
+    try {
+      new EmptyValidation([{ name: "email", value: email }]).validate();
+    } catch (error: any) {
+      mensagesFailure(error, openFailure);
+    }
+  }
+
   return (
     <>
+      <ErrorPortal>
+        {failure.enable && (
+          <Error menssage={failure.message} close={closeFailure} />
+        )}
+      </ErrorPortal>
       <TwoViews header={false}>
         <div>
           <Brand />
@@ -16,6 +39,7 @@ const ResetPassoword = () => {
         <div>
           <RegionForm
             title="Reset Password"
+            action={resetHandler}
             linkFooter={
               <NavLink to="/">
                 {" "}
@@ -23,7 +47,11 @@ const ResetPassoword = () => {
               </NavLink>
             }
           >
-            <input type="email" placeholder="Email"></input>
+            <input
+              onChange={(event) => setEmail(event.target.value)}
+              type="email"
+              placeholder="Email"
+            ></input>
             <div className="spacing" />
             <ButtonLogin>
               Send Link <BsArrowRight size={24} />

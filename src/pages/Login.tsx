@@ -1,7 +1,6 @@
 import Brand from "@components/Brand";
 import Footer from "@components/footer";
 import RegionForm from "@components/RegionForm";
-import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
 import TwoViews from "@components/TwoViews";
 import React, { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
@@ -10,41 +9,61 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import { urlBase, headerBase } from "@src/constants/api_constants";
 import { loginActions } from "@src/store/login";
+import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
+import EmptyValidation from "@src/common/empty_validation";
+import mensagesFailure from "@src/common/messages_failure";
+import useFailure from "@src/hooks/failure";
+import Error from "@components/UI/Error";
+import ErrorPortal from "@src/portals/ErrorPortal";
 
 const Login = () => {
   const navigate = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
+  const { failure, openFailure, closeFailure } = useFailure();
 
   const loginHandler = async (event: React.FormEvent) => {
     event.preventDefault();
-    const response = await axios.post(
-      urlBase + "login",
-      { email, password },
-      { headers: headerBase }
-    );
-    const data = await response.data;
-    const token = data.token.token;
-    const expireAtToken = data.token.expires_at;
-    const user_id = data.user.id;
-    const name = data.user.name;
-    const logged = true;
-    dispatch(
-      loginActions.setLogin({
-        token,
-        expireAtToken,
-        user_id,
-        name,
-        logged,
-        email: data.user.email,
-      })
-    );
-    navigate.push("/home");
+    try {
+      new EmptyValidation([
+        { name: "email", value: email },
+        { name: "password", value: password },
+      ]).validate();
+      const response = await axios.post(
+        urlBase + "login",
+        { email, password },
+        { headers: headerBase }
+      );
+      const data = await response.data;
+      const token = data.token.token;
+      const expireAtToken = data.token.expires_at;
+      const user_id = data.user.id;
+      const name = data.user.name;
+      const logged = true;
+      dispatch(
+        loginActions.setLogin({
+          token,
+          expireAtToken,
+          user_id,
+          name,
+          logged,
+          email: data.user.email,
+        })
+      );
+      navigate.push("/home");
+    } catch (error: any) {
+      mensagesFailure(error, openFailure);
+    }
   };
 
   return (
     <>
+      <ErrorPortal>
+        {failure.enable && (
+          <Error menssage={failure.message} close={closeFailure} />
+        )}
+      </ErrorPortal>
       <TwoViews header={false}>
         <div>
           <Brand />
