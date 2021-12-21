@@ -28,6 +28,8 @@ export default function mensagesFailure(
         openFailure(failures);
       } else if (failure.response && failure.response.status === 404) {
         openFailure(failure.response.data.message);
+      } else if (failure.response && failure.response.status === 403) {
+        openFailure("You are not authorized to do this action.");
       } else {
         openFailure(failure.message);
       }
