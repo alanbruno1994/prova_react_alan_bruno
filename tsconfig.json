@@ -13,7 +13,8 @@
       "@types/*": ["./src/types/*"],
       "@common/*": ["./src/common/*"],
       "@errors/*": ["./src/errors/*"],
-      "@portals/*": ["./src/portals/*"]
+      "@portals/*": ["./src/portals/*"],
+      "@animation/*": ["./src/animation/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
