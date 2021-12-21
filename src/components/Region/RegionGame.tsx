@@ -2,6 +2,7 @@ import ActionCart from "@components/ActionsCart";
 import ButtonsChose from "@components/ButtonsChose";
 import NumbersChoose from "@components/NumbersChoose";
 import RegionGameStyled from "@components/SyledComponents/RegionGameStyled";
+import animationTiming from "@src/constants/timing_animation";
 import Game from "@src/types/game.type";
 import { useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
@@ -32,12 +33,6 @@ const RegionGame: React.FC<{ games: Game[] }> = (props) => {
 
   const clearGameHandler = () => {
     setBallChoose([]);
-  };
-
-  const animationTiming = {
-    // O tempo de entrada e saida da animacao
-    enter: 1000,
-    exit: 1000,
   };
 
   return (
