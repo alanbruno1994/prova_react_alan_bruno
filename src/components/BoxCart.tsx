@@ -35,6 +35,7 @@ const Content = styled.div`
       color: #868686;
       font-size: 15px;
       font-style: italic;
+      word-break: break-all;
     }
 
     .type-game {
