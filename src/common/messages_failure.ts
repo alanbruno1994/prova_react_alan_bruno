@@ -19,6 +19,15 @@ export default function mensagesFailure(
           openFailure(
             "You are not authorizing to do this, check if you are correctly logged in to perform this operation."
           );
+      } else if (failure.response && failure.response.status === 422) {
+        let failures = failure.response.data.errors
+          .map((current: { message: string }) => {
+            return current.message;
+          })
+          .toString();
+        openFailure(failures);
+      } else if (failure.response && failure.response.status === 404) {
+        openFailure(failure.response.data.message);
       } else {
         openFailure(failure.message);
       }
