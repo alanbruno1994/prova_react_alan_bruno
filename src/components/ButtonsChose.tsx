@@ -32,32 +32,17 @@ const ButtonsChose: React.FC<{
   };
   return (
     <Body>
-      {props.games.map((game: Game, index) => {
-        if (game.id === props.chooseGame.id) {
-          return (
-            <ButtonGame
-              index={index}
-              id={game.id}
-              chooseHandler={chooseGameHandler}
-              key={game.id}
-              text={game.type}
-              backGround={game.color}
-              colorText="white"
-            />
-          );
-        }
-        return (
-          <ButtonGame
-            index={index}
-            id={game.id}
-            chooseHandler={chooseGameHandler}
-            key={game.id}
-            text={game.type}
-            backGround="white"
-            colorText={game.color}
-          />
-        );
-      })}
+      {props.games.map((game: Game, index) => (
+        <ButtonGame
+          index={index}
+          id={game.id}
+          chooseHandler={chooseGameHandler}
+          key={game.id}
+          text={game.type}
+          backGround={game.id === props.chooseGame.id ? game.color : "white"}
+          colorText={game.id === props.chooseGame.id ? "white" : game.color}
+        />
+      ))}
     </Body>
   );
 };
