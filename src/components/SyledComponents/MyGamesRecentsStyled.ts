@@ -36,6 +36,32 @@ const Content = styled.div<{ typeColor: string }>`
     border-radius: 100px;
   }
 
+  .init {
+    animation: run 1s ease-in forwards;
+  }
+
+  .exit {
+    animation: finish 1s ease-out forwards;
+  }
+
+  @keyframes run {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes finish {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
   @media (max-width: 460px) {
     .numbers,
     .type-game {
