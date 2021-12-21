@@ -45,8 +45,6 @@ const ActionCart: React.FC<ActionCartType> = (props) => {
     )
       generate();
 
-    console.log(numbers);
-
     props.setBallChoose(numbers);
   };
 
