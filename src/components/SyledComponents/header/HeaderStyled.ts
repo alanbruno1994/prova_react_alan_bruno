@@ -22,6 +22,7 @@ const HeaderStyled = styled.header`
       font-style: italic;
       text-decoration: none;
       margin-left: 60px;
+      user-select: none;
     }
   }
 
@@ -39,6 +40,7 @@ const HeaderStyled = styled.header`
       display: flex;
       align-items: center;
       text-decoration: none;
+      user-select: none;
     }
 
     & > span {
