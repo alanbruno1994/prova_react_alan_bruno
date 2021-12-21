@@ -6,6 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function useGames(openFailure: any) {
   const [games, setGames] = useState<Game[]>([]);
+  const [minCart, setMinCart] = useState(0);
   const getGames = useCallback(async () => {
     try {
       const response = await axios.get(urlBase + "cart_games", {
@@ -13,6 +14,7 @@ export default function useGames(openFailure: any) {
       });
       const data = await response.data;
       setGames(data.types);
+      setMinCart(data.min_cart_value);
     } catch (failure: any) {
       mensagesFailure(failure, openFailure);
     }
@@ -22,5 +24,5 @@ export default function useGames(openFailure: any) {
     getGames();
   }, [getGames]);
 
-  return { games };
+  return { games, minCart };
 }
