@@ -15,6 +15,10 @@ const Div = styled.div<{ isHeader: boolean; home?: boolean }>`
     width: 50%;
   }
 
+  .full-width {
+    width: 100%;
+  }
+
   .leftDiv {
     width: 80%;
     .header-top-recent-games {
@@ -27,47 +31,6 @@ const Div = styled.div<{ isHeader: boolean; home?: boolean }>`
         font-weight: bold;
         font-style: italic;
         margin-right: 60px;
-      }
-    }
-
-    .region-game {
-      display: flex;
-      flex-direction: column;
-
-      .titles {
-        margin-top: 60px;
-        margin-bottom: 13px;
-      }
-
-      .title-bold,
-      .title {
-        text-transform: uppercase;
-        color: #707070;
-        font-size: 24px;
-        font-style: italic;
-        font-weight: 100;
-      }
-
-      .title-bold {
-        font-weight: bold;
-      }
-
-      .subtitle {
-        color: #707070;
-        font-size: 17px;
-        font-style: italic;
-        margin-bottom: 15px;
-        margin-top: 15px;
-      }
-
-      .game-change {
-        display: flex;
-        margin-top: 30px;
-        margin-bottom: 20px;
-
-        button {
-          margin-right: 25px;
-        }
       }
     }
   }

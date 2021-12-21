@@ -18,6 +18,7 @@ const Content = styled.div`
     max-width: 300px;
     background-color: #f7f7f7;
     top: 0px;
+    min-width: 220px;
 
     .header {
       display: flex;
@@ -51,7 +52,7 @@ const Content = styled.div`
           margin-left: 2px;
           height: 7px;
           position: absolute;
-          top: 68px;
+          top: 76px;
           background-color: #b5c401;
         }
       }
