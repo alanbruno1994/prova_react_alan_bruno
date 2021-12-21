@@ -16,7 +16,8 @@ const Home = () => {
   const [chooseGame, setChooseGame] = useState({ id: 0, index: 0 });
   const { failure, openFailure, closeFailure } = useFailure();
   const { games } = useGames(openFailure);
-  const { bets, getBets, formatPriceCreateAt } = useBets(openFailure);
+  const { bets, getBets, formatPriceCreateAt, formatNumber } =
+    useBets(openFailure);
 
   const handlerChooseGame = (value: { id: number; index: number }) => {
     setChooseGame(value);
@@ -47,7 +48,7 @@ const Home = () => {
             bets?.map((value, index) => (
               <MyGamesRecents
                 key={index}
-                numbers={value.choosen_numbers}
+                numbers={formatNumber(value)}
                 priceDate={formatPriceCreateAt(value)}
                 typeGame={value.type.type}
                 typeColor={

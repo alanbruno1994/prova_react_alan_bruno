@@ -36,9 +36,19 @@ export default function useBets(openFailure: any) {
     return `${date} - (R$ ${price})`;
   }
 
+  function formatNumber(bet: Bet) {
+    let vector = bet.choosen_numbers.split(",");
+    return vector
+      .map((current) => {
+        let value = +current;
+        return value <= 9 ? "0" + value : "" + value;
+      })
+      .toString();
+  }
+
   useEffect(() => {
     getBets();
   }, [getBets]);
 
-  return { bets, getBets, formatPriceCreateAt };
+  return { bets, getBets, formatPriceCreateAt, formatNumber };
 }
