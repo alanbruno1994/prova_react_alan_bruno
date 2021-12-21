@@ -8,11 +8,12 @@ import useGames from "@src/hooks/games";
 import RegionGame from "@components/Region/RegionGame";
 import CardAnimation from "@src/animation/CardMsgAnimation";
 import { useSelector } from "react-redux";
+import { State } from "@src/types/state.type";
 
 const NewBet = () => {
   const { failure, openFailure, closeFailure } = useFailure();
   const { games, minCart } = useGames(openFailure);
-  const cart = useSelector((state: any) => state.cart);
+  const cart = useSelector((state: State) => state.cart);
 
   return (
     <>

@@ -1,13 +1,14 @@
 import mensagesFailure from "@src/common/messages_failure";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import Bet from "@src/types/bet.type";
+import { State } from "@src/types/state.type";
 import axios from "axios";
 import { useCallback, useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
 export default function useBets(openFailure: any) {
   const [bets, setBets] = useState<Bet[]>([]);
-  const login = useSelector((state: any) => state.login);
+  const login = useSelector((state: State) => state.login);
 
   const getBets = useCallback(
     async (params: string = "") => {

@@ -3,7 +3,6 @@ import mensagesFailure from "@src/common/messages_failure";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import useFailure from "@src/hooks/failure";
 import ErrorPortal from "@src/portals/ErrorPortal";
-import { CartType } from "@src/store/cart";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
@@ -12,13 +11,15 @@ import { NavLink } from "react-router-dom";
 import BoxCart from "./BoxCart";
 import { cartActions } from "@src/store/cart";
 import Content from "./SyledComponents/CartStyled";
+import { State } from "@src/types/state.type";
+import { CartType } from "@src/types/cart.type";
 
 const Cart: React.FC<{ minCart: number }> = (props) => {
-  const itemsCart: CartType[] = useSelector((state: any) => state.cart.items);
+  const itemsCart: CartType[] = useSelector((state: State) => state.cart.items);
   const [total, setTotal] = useState(0);
   const { failure, openFailure, closeFailure } = useFailure();
-  const games = useSelector((state: any) => state.cart);
-  const login = useSelector((state: any) => state.login);
+  const games = useSelector((state: State) => state.cart);
+  const login = useSelector((state: State) => state.login);
   const dispatch = useDispatch();
 
   useEffect(() => {
