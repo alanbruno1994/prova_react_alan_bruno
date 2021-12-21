@@ -15,6 +15,7 @@ import EmptyValidation from "@src/common/empty_validation";
 import mensagesFailure from "@src/common/messages_failure";
 import ErrorPortal from "@src/portals/ErrorPortal";
 import CardAnimation from "@src/animation/CardMsgAnimation";
+import EmailValidation from "@src/common/email_validation";
 
 const RegisterUser = () => {
   const navigate = useHistory();
@@ -32,6 +33,7 @@ const RegisterUser = () => {
         { name: "name", value: name },
         { name: "password", value: password },
       ]).validate();
+      new EmailValidation(email).validate();
       const response = await axios.post(
         urlBase + "user/create",
         { email, name, password },

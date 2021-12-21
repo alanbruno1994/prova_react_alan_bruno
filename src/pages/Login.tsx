@@ -15,6 +15,7 @@ import mensagesFailure from "@src/common/messages_failure";
 import useFailure from "@src/hooks/failure";
 import ErrorPortal from "@src/portals/ErrorPortal";
 import CardAnimation from "@src/animation/CardMsgAnimation";
+import EmailValidation from "@src/common/email_validation";
 
 const Login = () => {
   const navigate = useHistory();
@@ -30,6 +31,7 @@ const Login = () => {
         { name: "email", value: email },
         { name: "password", value: password },
       ]).validate();
+      new EmailValidation(email).validate();
       const response = await axios.post(
         urlBase + "login",
         { email, password },

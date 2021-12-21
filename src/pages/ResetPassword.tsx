@@ -13,6 +13,7 @@ import ErrorPortal from "@src/portals/ErrorPortal";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import axios from "axios";
 import CardAnimation from "@src/animation/CardMsgAnimation";
+import EmailValidation from "@src/common/email_validation";
 
 const ResetPassoword = () => {
   const { failure, openFailure, closeFailure } = useFailure();
@@ -22,6 +23,7 @@ const ResetPassoword = () => {
     event.preventDefault();
     try {
       new EmptyValidation([{ name: "email", value: email }]).validate();
+      new EmailValidation(email).validate();
       await axios.post(urlBase + "reset", { email }, { headers: headerBase });
     } catch (error: any) {
       mensagesFailure(error, openFailure);
