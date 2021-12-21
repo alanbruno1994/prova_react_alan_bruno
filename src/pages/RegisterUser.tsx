@@ -1,6 +1,6 @@
 import Brand from "@components/Brand";
 import TwoViews from "@components/TwoViews";
-import RegionForm from "@components/RegionForm";
+import RegionForm from "@components/Region/RegionForm";
 
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { NavLink, useHistory } from "react-router-dom";

@@ -1,6 +1,6 @@
-import Card from "./UI/Card";
+import Card from "../UI/Card";
 import React from "react";
-import { DIVFather, Form } from "./SyledComponents/RegionFormStyled";
+import { DIVFather, Form } from "../SyledComponents/RegionFormStyled";
 
 const RegionLogin: React.FC<{
   linkFooter?: JSX.Element;

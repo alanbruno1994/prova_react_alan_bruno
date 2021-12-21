@@ -1,6 +1,6 @@
 import Brand from "@components/Brand";
 import TwoViews from "@components/TwoViews";
-import RegionForm from "@components/RegionForm";
+import RegionForm from "@components/Region/RegionForm";
 import { NavLink } from "react-router-dom";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import Footer from "@components/footer";

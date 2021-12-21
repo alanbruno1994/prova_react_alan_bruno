@@ -1,6 +1,6 @@
 import Brand from "@components/Brand";
 import Footer from "@components/footer";
-import RegionForm from "@components/RegionForm";
+import RegionForm from "@components/Region/RegionForm";
 import TwoViews from "@components/TwoViews";
 import React, { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
