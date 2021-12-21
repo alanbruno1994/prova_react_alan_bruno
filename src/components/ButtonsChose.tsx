@@ -12,6 +12,10 @@ const Body = styled.div`
     min-width: 113px;
   }
 
+  button:hover {
+    font-weight: bolder !important;
+  }
+
   @media (max-width: 620px) {
     flex-direction: column;
     align-items: center;
