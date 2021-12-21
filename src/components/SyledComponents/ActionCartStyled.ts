@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const ActionCartStyled = styled.div`
   display: flex;
+  margin-bottom: 5px;
 
   .button-action-cart_1 {
     display: flex;
