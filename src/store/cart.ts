@@ -1,17 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-export type CartType = {
-  id: number;
-  color: string;
-  numbers: number[];
-  price: number;
-  type: string;
-  id_game: number;
-};
-
-type CartRedux = {
-  items: CartType[];
-};
+import { CartRedux, CartType } from "@src/types/cart.type";
 
 const initialCart: CartRedux = {
   items: [],
