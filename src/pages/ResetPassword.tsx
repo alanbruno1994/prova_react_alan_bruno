@@ -9,8 +9,10 @@ import EmptyValidation from "@src/common/empty_validation";
 import mensagesFailure from "@src/common/messages_failure";
 import useFailure from "@src/hooks/failure";
 import { useState } from "react";
-import Error from "@components/UI/Error";
 import ErrorPortal from "@src/portals/ErrorPortal";
+import { headerBase, urlBase } from "@src/constants/api_constants";
+import axios from "axios";
+import CardAnimation from "@src/animation/CardMsgAnimation";
 
 const ResetPassoword = () => {
   const { failure, openFailure, closeFailure } = useFailure();
@@ -20,6 +22,7 @@ const ResetPassoword = () => {
     event.preventDefault();
     try {
       new EmptyValidation([{ name: "email", value: email }]).validate();
+      await axios.post(urlBase + "reset", { email }, { headers: headerBase });
     } catch (error: any) {
       mensagesFailure(error, openFailure);
     }
@@ -28,9 +31,11 @@ const ResetPassoword = () => {
   return (
     <>
       <ErrorPortal>
-        {failure.enable && (
-          <Error menssage={failure.message} close={closeFailure} />
-        )}
+        <CardAnimation
+          enable={failure.enable}
+          menssage={failure.message}
+          closeEnable={closeFailure}
+        ></CardAnimation>
       </ErrorPortal>
       <TwoViews header={false}>
         <div>
