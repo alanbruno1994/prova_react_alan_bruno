@@ -45,6 +45,12 @@ const CardAnimationStyled = styled.div<{ live: boolean }>`
       margin-bottom: 15px;
     }
   }
+
+  @media (max-width: 420px) {
+    .card {
+      width: 95%;
+    }
+  }
   .card-open {
     animation: open 1s ease-in forwards;
   }
