@@ -41,11 +41,11 @@ const RegionGameStyled = styled.div`
   }
 
   .init {
-    animation: run 1s ease-in forwards;
+    animation: run 1s ease-in forwards !important;
   }
 
   .exit {
-    animation: finish 1s ease-out forwards;
+    animation: finish 1s ease-out forwards !important;
   }
 
   @keyframes run {
