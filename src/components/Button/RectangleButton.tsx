@@ -13,12 +13,16 @@ const Button = styled.button<{
   border-radius: 10px;
   height: 52px;
   margin-right: ${(props) => (props.marginRight ? props.marginRight : "0px")};
+  user-select: none;
   .content {
     margin: 0px 20px;
 
     .separate {
       margin-left: 12px;
     }
+  }
+  &:hover {
+    font-weight: bolder;
   }
 `;
 

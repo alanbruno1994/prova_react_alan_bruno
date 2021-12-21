@@ -20,6 +20,7 @@ const FooterBody = styled.footer`
     align-items: center;
     color: #707070;
     font-size: 15px;
+    user-select: none;
   }
 `;
 

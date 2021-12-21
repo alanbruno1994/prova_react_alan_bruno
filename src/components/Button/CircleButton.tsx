@@ -14,6 +14,7 @@ const Button = styled.button<{ background?: string; hover: string }>`
   font-size: 20px;
   font-weight: bold;
   margin: 8px 5px;
+  user-select: none;
 
   &:hover {
     background-color: ${(props) => props.hover};
