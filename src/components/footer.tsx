@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FooterBody = styled.div`
+const FooterBody = styled.footer`
   width: 100%;
   height: 70px;
   display: flex;
