@@ -5,10 +5,11 @@ import ButtonGame from "./Button/ButtonGame";
 type Chose = { id: number; index: number };
 
 const Body = styled.div`
-  display: flex;
+  flex-wrap: wrap;
 
   button {
-    margin: 0px 10px;
+    margin: 5px 10px;
+    min-width: 113px;
   }
 
   @media (max-width: 620px) {
