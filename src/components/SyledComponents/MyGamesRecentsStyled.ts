@@ -4,6 +4,12 @@ const Content = styled.div<{ typeColor: string }>`
   display: flex;
   margin-top: 20px;
 
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.01);
+    border-radius: 2px;
+    opacity: 1;
+  }
+
   .infos-recent-games {
     display: flex;
     flex-direction: column;
