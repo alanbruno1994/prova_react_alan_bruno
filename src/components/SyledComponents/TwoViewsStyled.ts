@@ -65,7 +65,7 @@ const Div = styled.div<{ isHeader: boolean; home?: boolean }>`
     }
 
     .DivContentNewBet {
-      justify-content: flex-start;
+      justify-content: flex-end;
 
       .NewBet {
         text-align: left;
