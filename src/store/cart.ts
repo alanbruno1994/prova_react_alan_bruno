@@ -12,7 +12,6 @@ const cartSlice = createSlice({
     : initialCart,
   reducers: {
     addCart(state: CartRedux, action: { payload: CartType }) {
-      console.log(state.items);
       state.items.push(action.payload);
       localStorage.setItem("cartData", JSON.stringify(state.items));
     },
