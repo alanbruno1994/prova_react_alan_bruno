@@ -56,6 +56,10 @@ const Content = styled.div`
 
   @media (max-width: 360px) {
     width: 98%;
+    .cart-title,
+    .cart-total {
+      font-size: 18px;
+    }
   }
 `;
 
