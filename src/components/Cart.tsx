@@ -1,3 +1,4 @@
+import CardAnimation from "@src/animation/CardMsgAnimation";
 import mensagesFailure from "@src/common/messages_failure";
 import { headerBase, urlBase } from "@src/constants/api_constants";
 import useFailure from "@src/hooks/failure";
@@ -6,11 +7,11 @@ import { CartType } from "@src/store/cart";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import BoxCart from "./BoxCart";
-import Erro from "./UI/Error";
+import { cartActions } from "@src/store/cart";
 
 const Content = styled.div`
   display: flex;
@@ -77,6 +78,7 @@ const Cart: React.FC<{ minCart: number }> = (props) => {
   const { failure, openFailure, closeFailure } = useFailure();
   const games = useSelector((state: any) => state.cart);
   const login = useSelector((state: any) => state.login);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     let count = itemsCart.reduce(
@@ -88,7 +90,6 @@ const Cart: React.FC<{ minCart: number }> = (props) => {
 
   const buyBetsHandler = async (event: React.MouseEvent) => {
     event.preventDefault();
-    console.log(login);
     try {
       if (total < props.minCart) {
         throw new Error(
@@ -105,6 +106,7 @@ const Cart: React.FC<{ minCart: number }> = (props) => {
         },
         { headers: { ...headerBase, Authorization: "Bearer " + login.token } }
       );
+      dispatch(cartActions.clearCart());
     } catch (error: any) {
       mensagesFailure(error, openFailure);
     }
@@ -113,9 +115,11 @@ const Cart: React.FC<{ minCart: number }> = (props) => {
   return (
     <>
       <ErrorPortal>
-        {failure.enable && (
-          <Erro menssage={failure.message} close={closeFailure} />
-        )}
+        <CardAnimation
+          enable={failure.enable}
+          menssage={failure.message}
+          closeEnable={closeFailure}
+        ></CardAnimation>
       </ErrorPortal>
 
       <Content>
