@@ -8,7 +8,7 @@ const Body = styled.div`
   flex-wrap: wrap;
 
   button {
-    margin: 5px 10px;
+    margin: 6px 10px !important;
     min-width: 113px;
   }
 
@@ -17,7 +17,7 @@ const Body = styled.div`
     align-items: center;
     button {
       width: 90%;
-      margin: 10px 10px;
+      margin: 10px 10px !important;
     }
   }
 `;

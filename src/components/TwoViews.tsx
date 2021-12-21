@@ -31,6 +31,7 @@ const Div = styled.div<{ isHeader: boolean; home?: boolean }>`
         font-weight: bold;
         font-style: italic;
         margin-right: 60px;
+        min-width: 180px;
       }
     }
   }
