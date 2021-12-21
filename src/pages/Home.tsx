@@ -7,10 +7,10 @@ import { useState } from "react";
 import Header from "@components/Header/Header";
 import FilterRegion from "@components/FilterRegion";
 import ErrorPortal from "@src/portals/ErrorPortal";
-import Error from "@components/UI/Error";
 import useBets from "@src/hooks/bets";
 import useGames from "@src/hooks/games";
 import useFailure from "@src/hooks/failure";
+import CardAnimation from "@src/animation/CardMsgAnimation";
 
 const Home = () => {
   const [chooseGame, setChooseGame] = useState({ id: 0, index: 0 });
@@ -26,9 +26,11 @@ const Home = () => {
   return (
     <>
       <ErrorPortal>
-        {failure.enable && (
-          <Error menssage={failure.message} close={closeFailure} />
-        )}
+        <CardAnimation
+          enable={failure.enable}
+          menssage={failure.message}
+          closeEnable={closeFailure}
+        ></CardAnimation>
       </ErrorPortal>
       <Header />
       <TwoViews header={true} home={true}>

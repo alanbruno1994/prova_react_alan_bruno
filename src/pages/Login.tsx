@@ -13,8 +13,8 @@ import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
 import EmptyValidation from "@src/common/empty_validation";
 import mensagesFailure from "@src/common/messages_failure";
 import useFailure from "@src/hooks/failure";
-import Error from "@components/UI/Error";
 import ErrorPortal from "@src/portals/ErrorPortal";
+import CardAnimation from "@src/animation/CardMsgAnimation";
 
 const Login = () => {
   const navigate = useHistory();
@@ -60,9 +60,11 @@ const Login = () => {
   return (
     <>
       <ErrorPortal>
-        {failure.enable && (
-          <Error menssage={failure.message} close={closeFailure} />
-        )}
+        <CardAnimation
+          enable={failure.enable}
+          menssage={failure.message}
+          closeEnable={closeFailure}
+        ></CardAnimation>
       </ErrorPortal>
       <TwoViews header={false}>
         <div>

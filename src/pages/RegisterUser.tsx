@@ -1,7 +1,6 @@
 import Brand from "@components/Brand";
 import TwoViews from "@components/TwoViews";
 import RegionForm from "@components/Region/RegionForm";
-
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { NavLink, useHistory } from "react-router-dom";
 import Footer from "@components/footer";
@@ -13,9 +12,9 @@ import { loginActions } from "@src/store/login";
 import { ButtonLogin } from "@components/SyledComponents/RegionFormStyled";
 import useFailure from "@src/hooks/failure";
 import EmptyValidation from "@src/common/empty_validation";
-import Error from "@components/UI/Error";
 import mensagesFailure from "@src/common/messages_failure";
 import ErrorPortal from "@src/portals/ErrorPortal";
+import CardAnimation from "@src/animation/CardMsgAnimation";
 
 const RegisterUser = () => {
   const navigate = useHistory();
@@ -38,7 +37,7 @@ const RegisterUser = () => {
         { email, name, password },
         { headers: headerBase }
       );
-      console.log(response.status);
+
       const data = await response.data;
       const token = data.token.token;
       const expireAtToken = data.token.expires_at;
@@ -63,9 +62,11 @@ const RegisterUser = () => {
   return (
     <>
       <ErrorPortal>
-        {failure.enable && (
-          <Error menssage={failure.message} close={closeFailure} />
-        )}
+        <CardAnimation
+          enable={failure.enable}
+          menssage={failure.message}
+          closeEnable={closeFailure}
+        ></CardAnimation>
       </ErrorPortal>
       <TwoViews header={false}>
         <div>
